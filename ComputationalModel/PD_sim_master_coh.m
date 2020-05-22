@@ -1,5 +1,5 @@
 % simulate coherence
-clear all;close all;
+function PD_sim_master_coh
 p.dTsg     = 6e-3;   % ms
 p.dTgs     = 6e-3;   % ms
 p.dTgg     = 4e-3;   % ms
@@ -44,7 +44,7 @@ p.Wsgpi   = 2.7;%2.7
 p.Wgpegpi = 1;
 
 p.S       = 0.8;%0.8;%5.5;
-p.SN      = 300;%250;% normally we use 340;%105;%405
+p.SN      = 340;%250;% normally we use 340;%105;%405
 p.PhaseP  = 0;
 p.Method  = 'S';
 p.Plot    = 1;
@@ -56,10 +56,10 @@ p.Wsgpi   = 3;%2.9;%4.8;
 p.length  = 40;
 %p.Wgs     = 1.3;
 %p.Wsg     = p.Wsg;
-% try
-%     load('cohs.mat');
-%     load('pows.mat');
-% catch
+try
+    load('cohs.mat');
+    load('pows.mat');
+catch
 for n = 1:50
     for L = 1:3
         for ES = 1:12
@@ -133,7 +133,7 @@ save('cohs.mat','cohs');
 save('pows.mat','pows');
 %save('Gall.mat','Gall');
 
-%end
+end
 
     
 %end
@@ -227,7 +227,7 @@ for L = 1:3
    
 end
 
-
+%{
 %%
 %Gall = mean(Gall,4);
 lb = find(Dc.frequencies<15 & Dc.frequencies >10);   
@@ -284,3 +284,4 @@ for L = 1:6
     
 
 end
+%}
