@@ -1,9 +1,9 @@
 function correlate3Dimages(Xi,Yi,design_matrix,prefix,mask,perm,avout)
 
-% X is independent
-% Y is dependent
-% design_matrix specifies the DM for entry to spm_ancova
-% mask for cluster based permutation testing
+% X is cell array of nifti images which will be the independent variable
+% Y is cell array of nifti images which will be the dependent variable
+% design_matrix for entry to spm_ancova
+% nifti mask for cluster based permutation testing
 % whether to meanscale - this is usually advised in this situation
 % whether or not to perform permutation test for null distribution of
 % cluster extent threshold
