@@ -1,0 +1,45 @@
+This package includes scripts for calculating two sources of non-linearity in beta frequency band-Intrinsic mode functions (IMF). These are the sharpness around the extrema of the beta-IMF 
+and the intra-wave instantaneous frequency variations in the gaps between these extrema, -a measure of the degree of non-linearity in these gaps (DoNgap).
+
+OFFx.txt and ONx.txt: example real raw local field potentials (LFPs) from deep brain stimulation electrodes in the subthalamic nucleus in a patient with Parkinson's OFF and ON their levodopa medication
+
+Note: this package requires downloading subfunctions from fieldtrip toolbox (http://www.fieldtriptoolbox.org)
+
+SharpDoNdyn.m: the main function; this function shows examples of calculating the sharpness of the extremata of the beta-Intrinsic mode function (IMF) & DoNgap from real LFPs
+(1)line 4-9 = load raw data(replaceable)
+
+feemd.p: this function does the empirical mode decomposition (EMD) computation
+IMFs = feemd(data,eps,NE,num); 
+Input:
+(1)data = single raw input
+(2)eps = noise level(e.g. 0.1)
+(3)NE = ensemble number(e.g. 100)
+(4)num = number of IMFs(all decompositions determined by stopping criterion = -1)
+Output:
+(1)IMFs = IMFs decomposition; number of IMFs in raw data with time points in column
+
+gapcdn.p: this function does the DoNgap computation
+DoNgap = gapcdn(data,delt,gap);
+Input:
+(1)data = input with each column as different input
+(2)delt = length of increment in time
+(3)gap = time points excluded from DoN estimation
+Output:
+(1)DoNgap = single column; the last number is the overall DoNgap whereas the former ones are the DoNgap of different columns of inputs
+
+Esharp.m: this function does the sharpness computation (edit from Voyteklab)
+sharps = Esharp(data,Es,widthS,ampPC,amps);
+Input:
+(1)data = single raw input
+(2)Es = time points of peaks or troughs
+(3)widthS = Number of samples in each direction around extrema to use for sharpness estimation
+(4)ampPC = voltage threshold
+(5)amps = analytic amplitude of narrow bandpassed data
+Outputs:
+sharps = sharpness of each extrema
+
+Author: Chien-Hung Yeh
+Copyright year: 2020
+Copyright holder: University of Oxford
+Publisher: University of Oxford
+License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt

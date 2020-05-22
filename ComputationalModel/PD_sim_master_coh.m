@@ -146,15 +146,17 @@ for L = 1:3
         coh_stn_S(L,ES) = mean(mean(std(coh(:,[1 3],hb),1),2),3)./sqrt(size(coh,1));
     end
 end
+
+for L=1:3
 figure;
 
-plot(0:11,coh_stn_M(1,:),'bo','MarkerFaceColor','b');hold on;
+plot(0:11,coh_stn_M(L,:),'bo','MarkerFaceColor','b');hold on;
 %plot(0:11,coh_stn_M(2,:),'bo','MarkerFaceColor','b');hold on;
 %plot(0:11,coh_stn_M(3,:),'go','MarkerFaceColor','g');hold on;
 % h = legend('Wgie = 0','Wgie = 0.5','Wgie = 1');
 %set(h,'box','off','Location','NorthEastOutside');
 
-eb = errorbar(0:11,coh_stn_M(1,:),coh_stn_S(1,:),'LineStyle', 'none');hold on
+eb = errorbar(0:11,coh_stn_M(L,:),coh_stn_S(L,:),'LineStyle', 'none');hold on
 set(eb, 'color', 'b', 'LineWidth', 1);hold on;
 
 %eb = errorbar(0:11,coh_stn_M(2,:),coh_stn_S(2,:),'LineStyle', 'none');hold on
@@ -164,7 +166,7 @@ set(eb, 'color', 'b', 'LineWidth', 1);hold on;
 %set(eb, 'color', 'g', 'LineWidth', 1);hold on;
 set(gca,'FontSize',14);
 xlim([-0.5 11.5])
-
+end
 
 %%
 
