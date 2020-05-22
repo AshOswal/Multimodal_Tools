@@ -46,8 +46,7 @@ for n = 1:numel(Xi)
     YY = [YY,Y(:)];
 end
 rmfield(v0,'pinfo')
-
-if exist('avout','var') && isequal(avout,1)
+if exist('avout','var')
     avX = mean(XX,2);
     avY = mean(YY,2);
     avX = avX > spm_percentile(avX,95);
