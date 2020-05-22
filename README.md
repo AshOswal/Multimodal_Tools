@@ -1,7 +1,7 @@
 # Multimodal_Tools
  analysis tools
 
-Tools for analysing data. Below are the subdirectories and the relevant files they contain. Please note that the scripts are written in MATLAB and that they should work with any recent installation of SPM (https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) and/or FieldTrip
+Tools for analysing data. Below are the subdirectories and the relevant files they contain. Please note that the scripts are written in MATLAB (2019a) and that they should work with any recent installation of SPM (https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) and/or FieldTrip
 (http://www.fieldtriptoolbox.org/). 
 
 1) Computational model contains code for generating figures pertaining to the computational model. PD_sim_master_coh will generate figure 7 which is the simulation of power and coherence. Run PD_sim_master to generate the subplots within Figures 6 and Supplementary Figure 6. Finally master_bif generates the numerical bifurcation plot in Figure 6B. 
