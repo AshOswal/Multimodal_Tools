@@ -46,7 +46,8 @@ for n = 1:numel(Xi)
     YY = [YY,Y(:)];
 end
 rmfield(v0,'pinfo')
-if exist('avout','var')
+
+if exist('avout','var') && isequal(avout,1)
     avX = mean(XX,2);
     avY = mean(YY,2);
     avX = avX > spm_percentile(avX,95);
@@ -89,9 +90,9 @@ for n = 1:Nperm
         end
         
         % dont really need this
-        if all(isnan(Y))||all(isnan(X))||sum(Y)==0||sum(X)==0
-            continue
-        end
+        %if all(isnan(Y))||all(isnan(X))||sum(Y)==0||sum(X)==0
+        %    continue
+        %end
       
         DM     = design_matrix;
 

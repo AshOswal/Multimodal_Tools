@@ -89,7 +89,10 @@ for n = 1:Nperm
             end            
         end
         
-        % dont really need this
+        
+        % just ensures well conditioned design - important where images
+        % contain NaNs or have many 0 entries. These do not influence
+        % statistics ultimately
         if all(isnan(Y))||all(isnan(X))||sum(Y)==0||sum(X)==0
             continue
         end
@@ -129,7 +132,7 @@ for n = 1:Nperm
 end
 
 if ~isempty(permclustcount)
-    cind = clustcount>spm_percentile(permclustcount,99);
+    cind = clustcount>spm_percentile(permclustcount,95);
 else
     cind = 1:numel(clustcount);
 end
