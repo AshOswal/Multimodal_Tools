@@ -110,7 +110,7 @@ for n = 1:Nperm
         %RSS  =  sum((Y - ([X,DM]*beta)).^2);
         
         
-        if  prob<0.01 && beta(1)>0
+        if  prob<0.05 && beta(1)>0
             p(mind(i),n) = 1;
             %r_squared(mind(i),n) = 1 - (RSS/TSS);
             F_statistic(mind(i),n) = F;
@@ -137,7 +137,7 @@ else
     cind = 1:numel(clustcount);
 end
 
-extent_threshold = 50;
+extent_threshold = 100;
 cind = cind & (clustcount>extent_threshold);
 
 L1        = ismember(L1,find(cind)).*ones(size(L1));
